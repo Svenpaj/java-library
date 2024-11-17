@@ -22,12 +22,18 @@ public class Shelf {
     }
 
     public void addBook(Book book) {
-        Book[] newBooks = new Book[books.length + 1];
-        for (int i = 0; i < books.length; i++) {
-            newBooks[i] = books[i];
+        if (book.getCategory().equalsIgnoreCase(this.categoryName)) {
+            Book[] newBooks = new Book[books.length + 1];
+            for (int i = 0; i < books.length; i++) {
+                newBooks[i] = books[i];
+            }
+            newBooks[books.length] = book;
+            books = newBooks;
+        } else {
+            System.out
+                    .println(
+                            "Book category: " + "('" + book.getCategory() + "')" + ". Does not match shelf category: ('"
+                                    + this.categoryName + "').");
         }
-        newBooks[books.length] = book;
-        books = newBooks;
     }
-
 }

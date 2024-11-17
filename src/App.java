@@ -34,6 +34,8 @@ public class App {
 
         library.printBooksByAuthor("J.K. Rowling");
 
+        shelf1.addBook(new Book("The Shining", "Stephen King", 1977, "Horror"));
+
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
