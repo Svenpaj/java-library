@@ -30,4 +30,8 @@ public class Book {
         return category;
     }
 
+    public String getPublisher() {
+        return publisher;
+    }
+
 }
