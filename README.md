@@ -1,6 +1,6 @@
 ## OOP Example
 
-This is a demo in java showcasing an example of a library built with OOP style
+This is a demo in java showcasing an example of a library built with OOP style.
 
 
 ## Getting Started
