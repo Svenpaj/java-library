@@ -1,12 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Shelf {
 
     private String categoryName;
+    private List<Book> books;
 
-    private Book[] books;
-
-    public Shelf(String categoryName, Book[] books) {
+    public Shelf(String categoryName) {
         this.categoryName = categoryName;
-        this.books = books;
+        this.books = new ArrayList<>();
     }
 
     public String getCategoryName() {
@@ -17,23 +19,19 @@ public class Shelf {
         this.categoryName = categoryName;
     }
 
-    public Book[] getBooks() {
+    public List<Book> getBooks() {
         return books;
     }
 
-    public void addBook(Book book) {
-        if (book.getCategory().equalsIgnoreCase(this.categoryName)) {
-            Book[] newBooks = new Book[books.length + 1];
-            for (int i = 0; i < books.length; i++) {
-                newBooks[i] = books[i];
+    public void addBook(Book... book) {
+        for (Book b : book) {
+            if (b.getCategory().equalsIgnoreCase(this.categoryName)) {
+                books.add(b);
+            } else {
+                System.out.println(
+                        "Book category: " + "('" + b.getCategory() + "')" + ". Does not match shelf category: ('"
+                                + this.categoryName + "').");
             }
-            newBooks[books.length] = book;
-            books = newBooks;
-        } else {
-            System.out
-                    .println(
-                            "Book category: " + "('" + book.getCategory() + "')" + ". Does not match shelf category: ('"
-                                    + this.categoryName + "').");
         }
     }
 }
